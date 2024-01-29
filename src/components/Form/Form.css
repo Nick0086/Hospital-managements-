@@ -1,19 +1,36 @@
-import React, { useId, useRef  } from 'react'
-
-function Input({ label, type = "text", name, value = "", changeHandler }) {
-
-    let id = useId();
-    let inputRef = useRef()
-
-    console.log(inputRef)
-    console.log(`${label} = id = ${id}`);
-
-    return (
-        <div className='input-group'>
-            <label htmlFor={id} className='form-label' >{label} :</label>
-            <input type={type} name={name} ref={inputRef}  id={id} className='form-input' onChange={changeHandler} value={value} required></input>
-        </div>
-    )
+.form-body {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 600px;
+    margin-bottom: 40px;
 }
 
-export default Input
+.input-group {
+    margin-bottom: 16px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.form-input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.submit-btn {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
