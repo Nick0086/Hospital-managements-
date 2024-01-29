@@ -1,36 +1,61 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./Form.css"
 import Input from '../Input';
 
 function Form() {
 
-  
+    const data = {
+        name:"",
+        email:"",
+        address:"",
+        password:"",
+    }
+    const [userData,setUserData] = useState(data);
+
+    const userdataHandler = (e) => {
+        const {name,value} = e.target;
+        setUserData({ ...userData, [name]: value })
+
+    }
+
+    const dataHandler = (e) => {
+        e.preventDefault();
+        console.log("userData",userData)
+    }
 
   return (
     <>
-      <form className='form-body' >
+      <form className='form-body' onSubmit={dataHandler} >
 
         <Input
-          label="First Name"
+          label="Name"
           type="text"
           name="name"
+          value={userData.name}
+          onChange={userdataHandler}
         />
         <Input
-          label="Marks in AC"
-          type="number"
-          name="sub1"
-        />
-        
-        <Input
-          label="Marks in Law"
-          type="number"
-          name="sub2"
+          label="Email"
+          type="email"
+          name="email"
+          value={userData.email}
+          onChange={userdataHandler}
         />
         
         <Input
-          label="Marks in Stat"
-          type="number"
-          name="sub3"
+          label="Address"
+          type="text"
+          name="address"
+          value={userData.address}
+          onChange={userdataHandler}
+        />
+        
+        <Input
+          label="Password"
+          type="password"
+          name="password"
+          value={userData.password}
+          onChange={userdataHandler}
         />
         <button type="submit" className='submit-btn' >Submit</button>
       </form>

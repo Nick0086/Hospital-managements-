@@ -7,7 +7,7 @@ function Input({ label, type = "text", name, value = "", ...props }) {
     return (
         <div className='input-group'>
             <label htmlFor={id} className='form-label' >{label} :</label>
-            <input type={type} name={name}  id={id} className='form-input' {...props} value={value} required></input>
+            <input type={type} name={name}  id={id} className='form-input'  {...props} value={value} required></input>
         </div>
     )
 }
