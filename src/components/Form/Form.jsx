@@ -24,11 +24,7 @@ function Form() {
         e.preventDefault();
         console.log("userData", userData)
 
-        await axios({
-            method: 'post',
-            url: 'http://localhost:4000/',
-            userData,
-        })
+        await axios.post("http://localhost:4000/",userData)
             .then(function (response) {
                 console.log("response", response);
             })
@@ -39,7 +35,7 @@ function Form() {
 
     return (
         <>
-            <form className='form-body' method="post" onSubmit={dataHandler} >
+            <form className='form-body'  onSubmit={dataHandler} >
 
                 <Input
                     label="Name"
